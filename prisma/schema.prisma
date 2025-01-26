@@ -12,3 +12,37 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+enum ERole {
+  ADMIN
+  USER
+
+  @@map("roles")
+}
+
+model User {
+  id             Int          @id() @default(autoincrement())
+  nome           String
+  email          String
+  senha          String
+  Endereco       UserEndereco @relation(fields: [idEndereco], references: [id])
+  rg             String
+  cpf            String
+  dataNascimento String       @map("data_nascimento")
+  role           ERole        @default(USER)
+  idEndereco Int @map("id_endereco")
+
+  @@map("users")
+}
+
+model UserEndereco {
+  id       Int    @id() @default(autoincrement())
+  User     User[]
+  endereco String
+  bairro   String
+  cidade   String
+  estado   String
+  cep      String
+
+  @@map("users_enderecos")
+}
