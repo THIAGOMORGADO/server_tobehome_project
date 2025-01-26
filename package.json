@@ -1,0 +1,22 @@
+{
+  "name": "server_tobehome_project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node --watch src/server.ts"
+  },
+
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+    
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3",
+    "prisma": "^6.2.1"
+  }
+}
